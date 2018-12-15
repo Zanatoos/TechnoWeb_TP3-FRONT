@@ -1,0 +1,93 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 10vmin;
+  float: left;
+}
+
+.App-header {
+  width: 50vw;
+  height: 20vh;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-section {
+  width: 100vw;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App-search {
+  display: inline-block;
+  width: 50vw;
+  height: 40vh;
+}
+
+.selectedSongs {
+  float: right;
+  display: inline-block;
+  width: 50vw;
+  height: 40vh;
+}
+
+.input {
+  color: white;
+  border: 2px solid #61dafb;
+  background-color: #282c34;
+  padding: 1px 0px 1px 10px;
+  width: 20vw;
+  height: 5vh;
+  margin-bottom: 2vh;
+}
+.submit {
+  border: 1px solid grey;
+  color: black;
+  background-color: #61dafb;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: calc(10px + 1.5vmin);
+  margin-top: 3vh;
+  padding: 10px;
+}
+
+.selectedSongs-title {
+  color: #61dafb;
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+
+.selectedSongs ol {
+  width: 90%;
+}
+
+.item-list {
+  list-style-type: none;
+  text-align: left;
+  padding: 2px 0;
+  border-bottom: 1px solid white;
+}
+
+.item-list:hover {
+    font-size: calc(10px + 1.5vmin);
+}
