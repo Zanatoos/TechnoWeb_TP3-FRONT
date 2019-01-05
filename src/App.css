@@ -7,7 +7,6 @@
   align-items: center;
   justify-content: center;
   color: white;
-
 }
 
 .App-logo {
@@ -23,7 +22,7 @@
 }
 
 .App-section {
-  width: 100vw;
+  width: 95vw;
 }
 
 .App-link {
@@ -41,13 +40,12 @@
 
 .App-search {
   display: inline-block;
-  width: 100vw;
-    overflow-x: scroll;
+  width: 95vw;
 }
 
 .App-selectedSongs {
   float: right;
-  width: 45vw;
+  width: 40vw;
   margin-right: 5vw;
 }
 

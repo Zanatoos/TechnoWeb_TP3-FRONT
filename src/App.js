@@ -15,8 +15,8 @@ class App extends Component {
   }
 
   handleSuggestions = (el) => {
-    const reg = new RegExp(`${el}`, "i");
-    if(this.state.selectedSongs.indexOf(el) != -1) {
+
+    if(this.state.selectedSongs.indexOf(el) !== -1) {
       this.setState( (oldState) => ({
         selectedSongs: oldState.selectedSongs.filter(val => val.localeCompare(el))
       }));

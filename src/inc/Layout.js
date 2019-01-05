@@ -1,28 +1,37 @@
 import React, {Component} from 'react';
-import { allSongs } from './../songs';
+//import { allSongs } from './../songs';
 import './../App.css';
 import Suggestions from './Suggestions';
 import SelectedSongs from './SelectedSongs';
+
+import axios from 'axios';
 
 export default class Layout extends Component {
 
     constructor(props) {
         super(props);
 
-        this.songs = [...allSongs];
+        //this.songs = [...allSongs];
 
         this.state = {
-            suggestions: this.songs,
+            suggestions: [],
             text: ''
         };
     }
 
     onChange = (e) => {
-        const val = e.target.value;
-        const reg = new RegExp(`${val}`, 'i');
-        let suggestions = this.songs.filter( x => x.match(reg));
+        const partSongs = e.target.value;
 
-        this.setState(() =>({suggestions, text:val}));
+        axios.get(`http://localhost:8081/${partSongs}`)
+          .then(res => {
+            const songs = res.data;
+            console.log(songs);
+            this.setState(() =>({suggestions: songs, text:partSongs}));
+          })
+          .catch( error => {
+            console.log(error.response.status);
+            this.setState(() =>({suggestions: [], text:''}));
+          })
     }
 
 
