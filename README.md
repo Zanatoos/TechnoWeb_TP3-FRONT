@@ -9,7 +9,12 @@ In the project directory, you can run:
 
 ### `npm install`
 
-Create the node_modules file and install all the required packages to allow the command npm start to work.
+Create the node_modules file and install all the required packages to allow the command npm start to work and launch the application.
+This command needs to be run in the project folder and the api folder to install the 2 node_modules folders.
+
+### `node ./server.js`
+
+Command to launch the API used to get the songs for the application.
 
 ### `npm start`
 
@@ -24,3 +29,7 @@ You will also see any lint errors in the console.
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Note
+
+Two console has to be oppened to launch the API server and the Application.
