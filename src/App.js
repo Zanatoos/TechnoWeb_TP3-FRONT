@@ -1,36 +1,30 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import Input from './includes/Input';
-import Submit from './includes/Submit';
-import SelectedSongs from './includes/SelectedSongs';
 import './App.css';
+import Layout from './inc/Layout';
 
 class App extends Component {
-  constructor(param) {
-    super(param)
+
+
+  constructor(props) {
+    super(props)
 
     this.state = {
       selectedSongs: []
     };
   }
 
-  handleAddOption = (new_entry) => {
-
-    if (!this.state.selectedSongs.includes(new_entry)) {
-        this.setState((prevState) => ({
-          selectedSongs: prevState.selectedSongs.concat(new_entry)
+  handleSuggestions = (el) => {
+    const reg = new RegExp(`${el}`, "i");
+    if(this.state.selectedSongs.indexOf(el) != -1) {
+      this.setState( (oldState) => ({
+        selectedSongs: oldState.selectedSongs.filter(val => val.localeCompare(el))
       }));
-
     } else {
-        this.setState((prevState) => ({
-          selectedSongs: prevState.selectedSongs.filter(song => !new_entry.includes(song))
-        }));
+      this.setState( (oldState) => ({
+        selectedSongs: oldState.selectedSongs.concat(el)
+      }));
     }
-
-  }
-
-  handleDisplayResult = () => {
-    alert(this.state.selectedSongs.join(", \n"));
   }
 
   render() {
@@ -41,18 +35,9 @@ class App extends Component {
           <h2> Techno Web - Queen Songs List </h2>
         </header>
         <section className="App-section">
-          <div className="App-search">
-            <Input
-              handleAddOption={this.handleAddOption}
-            />
-            <Submit
-              handleDisplayResult={this.handleDisplayResult}
-            />
-          </div>
-
-          <SelectedSongs
-            list={this.state.selectedSongs}
-            handleAddOption={this.handleAddOption}
+          <Layout
+            handleSuggestions = {this.handleSuggestions}
+            selectedSongs = {this.state.selectedSongs}
           />
 
         </section>
